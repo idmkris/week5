@@ -56,13 +56,16 @@ public class MarkdownParse {
             int prevCloseBracket = nextCloseBracket;
             int prevOpenParen = openParen;
             int prevCloseParen = closeParen;
-
+            
+            //order of bracket wrong
+        
             if (nextCloseBracket > openParen) break;
             nextOpenBracket = markdown.indexOf("[", currentIndex);
             nextCloseBracket = markdown.indexOf("]", nextOpenBracket);
             openParen = markdown.indexOf("(", nextCloseBracket);
             closeParen = markdown.indexOf(")", openParen);
 
+            
             // Fix for tests 2 and 8
             if(nextOpenBracket == -1 || nextCloseBracket == -1 || 
             openParen < prevOpenParen || closeParen < prevCloseParen){
